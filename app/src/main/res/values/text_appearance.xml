@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- headline 1 -->
+    <style name="App.Style.TextAppearance.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textSize">@dimen/_26ssp</item>
+    </style>
+
+    <style name="App.Style.TextAppearance.Headline1.bold" parent="App.Style.TextAppearance.Headline1">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- headline 2 -->
+    <style name="App.Style.TextAppearance.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textSize">@dimen/_22ssp</item>
+    </style>
+
+    <style name="App.Style.TextAppearance.Headline2.bold" parent="App.Style.TextAppearance.Headline2">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- headline 3 -->
+    <style name="App.Style.TextAppearance.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textSize">@dimen/_20ssp</item>
+    </style>
+
+    <style name="App.Style.TextAppearance.Headline3.bold" parent="App.Style.TextAppearance.Headline3">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- headline 4 -->
+    <style name="App.Style.TextAppearance.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textSize">@dimen/_18ssp</item>
+    </style>
+
+    <style name="App.Style.TextAppearance.Headline4.bold" parent="App.Style.TextAppearance.Headline4">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- headline 5 -->
+    <style name="App.Style.TextAppearance.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">@dimen/_16ssp</item>
+    </style>
+
+    <style name="App.Style.TextAppearance.Headline5.bold" parent="App.Style.TextAppearance.Headline5">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- Body 1 -->
+    <style name="App.Style.TextAppearance.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+
+    <style name="App.Style.TextAppearance.Body1.bold" parent="App.Style.TextAppearance.Body1">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- Body 2 -->
+    <style name="App.Style.TextAppearance.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="App.Style.TextAppearance.Body2.bold" parent="App.Style.TextAppearance.Body2">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- caption -->
+    <style name="App.Style.TextAppearance.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="App.Style.TextAppearance.Caption.bold" parent="App.Style.TextAppearance.Caption">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+</resources>

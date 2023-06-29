@@ -1,11 +1,41 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.ExpenseTracker" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+    <style name="Theme.ExpenseTracker" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/blueGray90</item>
+        <item name="colorOnPrimary">@color/blueGray10</item>
+        <item name="colorPrimaryContainer">@color/blueGray30</item>
+        <item name="colorOnPrimaryContainer">@color/blueGray90</item>
+        <item name="colorPrimaryInverse">@color/blueGray10</item>
 
-    <style name="Theme.ExpenseTracker" parent="Base.Theme.ExpenseTracker" />
+        <item name="colorSecondary">@color/blueGray90</item>
+        <item name="colorOnSecondary">@color/blueGray10</item>
+        <item name="colorSecondaryContainer">@color/blueGray10</item>
+        <item name="colorOnSecondaryContainer">@color/blueGray90</item>
+
+        <item name="android:colorBackground">@color/blueGray70</item>
+        <item name="colorOnBackground">@color/blueGray10</item>
+
+        <item name="colorTertiary">@color/blueGray80</item>
+        <item name="colorOnTertiary">@color/blueGray10</item>
+        <item name="colorTertiaryContainer">@color/blueGray10</item>
+        <item name="colorOnTertiaryContainer">@color/blueGray90</item>
+
+        <item name="colorError">@color/red90</item>
+        <item name="colorOnError">@color/red10</item>
+        <item name="colorErrorContainer">@color/red20</item>
+        <item name="colorOnErrorContainer">@color/red90</item>
+
+        <item name="colorSurface">@color/blueGray80</item>
+        <item name="colorOnSurface">@color/blueGray10</item>
+
+        <item name="colorSurfaceInverse">@color/blueGray90</item>
+        <item name="colorOnSurfaceInverse">@color/blueGray10</item>
+
+        <item name="colorSurfaceVariant">@color/blueGray10</item>
+        <item name="colorOnSurfaceVariant">@color/blueGray90</item>
+
+        <item name="colorOutline">@color/blueGray70</item>
+    </style>
 
 
     <style name="Theme.Splash" parent="Theme.SplashScreen">
