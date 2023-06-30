@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.list.ExpenseListFragment">
+
+    <LinearLayout
+        android:id="@+id/filterContainerLinearLayout"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:backgroundTint="?colorPrimary"
+        android:background="@drawable/round_corner_rectangle_shape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:gravity="center_vertical"
+        android:paddingVertical="@dimen/_2sdp"
+        android:paddingHorizontal="@dimen/_4sdp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/startDateTextView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/_4sdp"
+            app:drawableStartCompat="@drawable/ic_date"
+            android:drawablePadding="@dimen/_6sdp"
+            android:hint="@string/labelStartDate"
+            android:backgroundTint="?colorSurface"
+            android:textColorHint="?colorOnSurface"
+            android:textColor="?colorOnSurface"
+            android:drawableTint="?colorOnSurface"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:textAppearance="@style/App.Style.TextAppearance.Body2"
+            android:background="@drawable/round_corner_rectangle_shape" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/endDateTextView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            app:drawableStartCompat="@drawable/ic_date"
+            android:hint="@string/labelEndDate"
+            android:textColorHint="?colorOnSurface"
+            android:drawablePadding="@dimen/_6sdp"
+            android:backgroundTint="?colorSurface"
+            android:textColor="?colorOnSurface"
+            android:drawableTint="?colorOnSurface"
+            android:textAppearance="@style/App.Style.TextAppearance.Body2"
+            android:background="@drawable/round_corner_rectangle_shape" />
+
+        <ImageView
+            android:id="@+id/listFilterOptionImageView"
+            android:stateListAnimator="@animator/scale_touch_effect"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_filter_list_off"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?colorOnPrimary"
+            android:contentDescription="@string/homeListFilterContentDescription" />
+    </LinearLayout>
+
+    <com.jcoding.expensetracker.custom.view.contentlayout.ContentLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/filterContainerLinearLayout"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_8sdp"
+                android:backgroundTint="?colorPrimary"
+                android:background="@drawable/round_corner_rectangle_shape"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_4sdp">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/labelTotalExpenses"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/_4sdp"
+                    android:textColor="?colorOnPrimary"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/totalExpenseAmountTextView"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="@dimen/_4sdp"
+                    android:gravity="center_vertical|end"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:textColor="?colorOnPrimary" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listRecyclerView"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </com.jcoding.expensetracker.custom.view.contentlayout.ContentLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

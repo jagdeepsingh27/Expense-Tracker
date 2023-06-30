@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:parentTag="android.widget.FrameLayout">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/errorMessageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/errorSomethingWentWrong"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:gravity="center_horizontal"
+            android:textAppearance="@style/App.Style.TextAppearance.Body1"
+            android:textColor="?colorOnBackground" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/retryLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/labelRetry"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:background="@drawable/round_corner_rectangle_shape"
+            android:backgroundTint="?colorPrimaryContainer"
+            android:padding="@dimen/_8sdp"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:textAppearance="@style/App.Style.TextAppearance.Body1.bold"
+            android:textColor="?colorOnPrimaryContainer" />
+
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:indeterminate="true" />
+
+
+    </LinearLayout>
+
+</merge>

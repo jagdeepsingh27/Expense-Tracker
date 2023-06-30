@@ -8,4 +8,6 @@
     <string name="labelTotalExpenses">Total Expenses :</string>
     <string name="labelStartDate">Start Date</string>
     <string name="labelEndDate">End Date</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

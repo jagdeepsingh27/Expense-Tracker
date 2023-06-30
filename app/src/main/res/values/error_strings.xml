@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- commons -->
+    <string name="errorSomethingWentWrong">Something went wrong.</string>
+
+    <!-- add expense screen -->
+    <string name="errorAddTitle">Please add title.</string>
+    <string name="errorAddAmount">Please add amount.</string>
+    <string name="errorAddDescription">Please add description.</string>
+    <string name="errorSelectExpenseCategory">Please select category.</string>
+    <string name="errorSelectExpensePaymentMethod">Please select payment method.</string>
+
+</resources>

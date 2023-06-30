@@ -11,18 +11,13 @@ import com.jcoding.expensetracker.util.`typealias`.InflateFragment
 
 abstract class BaseFragment<VB : ViewBinding>(private val inflate: InflateFragment<VB>) : Fragment() {
     private var _binding: VB? = null
-    abstract fun onCreateViewBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): VB
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = inflate.invoke(inflater, container, savedInstanceState)
+        _binding = inflate.invoke(inflater, container,false)
         return binding().root
     }
 
