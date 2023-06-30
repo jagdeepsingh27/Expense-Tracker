@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- default expense category names -->
+    <string name="expenseCateEducation">Education</string>
+    <string name="expenseCateFood">Food</string>
+    <string name="expenseCateHealth">Health</string>
+    <string name="expenseCateHouseRent">House Rent</string>
+    <string name="expenseCateMovieTicket">Movie Ticket</string>
+    <string name="expenseCateRent">Rent</string>
+    <string name="expenseCateShopping">Shopping</string>
+    <string name="expenseCateTravel">Travel</string>
+    <string name="expenseCateOthers">Others</string>
+
+    <!-- expense payment method -->
+    <string name="expensePaymentCash">Cash</string>
+    <string name="expensePaymentDigital">Digital</string>
+    <string name="expensePaymentCheque">Cheque</string>
+    <string name="expensePaymentOthers">Others</string>
+
+
+</resources>
