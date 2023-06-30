@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- home screen -->
+    <string name="addExpenseContentDescription">Add expense</string>
+    <string name="appSettingContentDescription">App settings</string>
+    <string name="editExpenseContentDescription">Edit expense</string>
+    <string name="backArrowContentDescription">Back arrow</string>
+    <string name="homeListFilterContentDescription">Home list filter</string>
+</resources>

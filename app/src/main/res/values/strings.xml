@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Expense-Tracker</string>
+    <!-- common -->
+    <string name="labelRetry">Retry</string>
+    <string name="noDataAvailable">No data available</string>
+    <!-- home screen -->
+    <string name="titleHomeScreen">Expenses</string>
+    <string name="labelTotalExpenses">Total Expenses :</string>
+    <string name="labelStartDate">Start Date</string>
+    <string name="labelEndDate">End Date</string>
 </resources>
