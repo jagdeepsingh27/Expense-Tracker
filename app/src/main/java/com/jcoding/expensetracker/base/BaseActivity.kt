@@ -20,7 +20,6 @@ abstract class BaseActivity<VB : ViewBinding>(private val inflate: InflateActivi
         super.onCreate(savedInstanceState)
         binding = inflate.invoke(layoutInflater)
         setContentView(binding.root)
-        toast = Toast.makeText(this, "", Toast.LENGTH_SHORT)
     }
 
 
@@ -41,10 +40,8 @@ abstract class BaseActivity<VB : ViewBinding>(private val inflate: InflateActivi
         if (resourceString.isNullOrBlank()) {
             return
         }
-        if (toast != null) {
-            toast?.cancel()
-        }
 
+        toast?.cancel()
         toast = Toast.makeText(this, resourceString, Toast.LENGTH_SHORT)
         toast?.show()
     }
