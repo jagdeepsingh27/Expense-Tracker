@@ -7,12 +7,13 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.jcoding.expensetracker.ui.dialog.ProgressLoader
 import com.jcoding.expensetracker.util.`typealias`.InflateActivity
 
 
 abstract class BaseActivity<VB : ViewBinding>(private val inflate: InflateActivity<VB>) :
     AppCompatActivity() {
-
+    protected val progressLoader: ProgressLoader by lazy { ProgressLoader(this) }
     private var toast: Toast? = null
     protected lateinit var binding: VB
 

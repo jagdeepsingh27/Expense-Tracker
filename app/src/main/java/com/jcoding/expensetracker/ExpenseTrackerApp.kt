@@ -11,6 +11,15 @@ import androidx.datastore.preferences.preferencesDataStore
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "expense_app_prefs")
 
 class ExpenseTrackerApp() : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        //////////////////////////////////////////////////////////////////////
+        //init injection
+        initInjection()
+        //////////////////////////////////////////////////////////////////////
+    }
 
-
+    private fun initInjection() {
+        Injection.init(applicationContext)
+    }
 }

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.addeditexpense.AddEditExpenseActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbarContainerConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="?colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/screenTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titleAddExpense"
+            android:textAppearance="@style/App.Style.TextAppearance.Headline4"
+            android:textColor="?colorOnPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/backArrowImageView"
+            android:stateListAnimator="@animator/scale_touch_effect"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?colorOnPrimary"
+            android:contentDescription="@string/backArrowContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ScrollView
+        android:id="@+id/mainContainerScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarContainerConstraintLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_8sdp">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_marginTop="@dimen/_8sdp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/titleEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/labelTitle"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:inputType="text"
+                    android:textColor="?colorOnBackground" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_marginTop="@dimen/_8sdp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/amountEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/labelAmount"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:inputType="numberDecimal"
+                    android:textColor="?colorOnBackground" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayoutStyle"
+                android:layout_marginTop="@dimen/_8sdp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/descriptionEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/labelDescription"
+                    android:inputType="textMultiLine"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:textColor="?colorOnBackground" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/categoryTextView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:gravity="center_vertical"
+                android:drawablePadding="@dimen/_4sdp"
+                android:stateListAnimator="@animator/scale_touch_effect"
+                android:hint="@string/labelSelectCategory"
+                android:drawableTint="?colorOnSurface"
+                android:textColorHint="?colorOnSurface"
+                android:backgroundTint="?colorSurface"
+                android:background="@drawable/round_corner_rectangle_shape"
+                android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                android:textColor="?colorOnBackground" />
+
+
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/labelPaymentMethodType"
+                android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                android:textColor="?colorOnBackground" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/paymentMethodTextView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center_vertical"
+                android:drawablePadding="@dimen/_4sdp"
+                android:stateListAnimator="@animator/scale_touch_effect"
+                android:hint="@string/labelSelectPaymentMethod"
+                android:textColorHint="?colorOnSurface"
+                android:backgroundTint="?colorSurface"
+                android:background="@drawable/round_corner_rectangle_shape"
+                android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                android:textColor="?colorOnBackground" />
+
+
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelDateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/labelDateAndTime"
+                android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                android:textColor="?colorOnBackground" />
+
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/selectedDateTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/_4sdp"
+                    app:drawableStartCompat="@drawable/ic_date"
+                    android:drawableTint="?colorOnSurface"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:backgroundTint="?colorSurface"
+                    android:textColor="?colorOnSurface"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:background="@drawable/round_corner_rectangle_shape" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/selectedTimeTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:drawableTint="?colorOnSurface"
+                    android:paddingHorizontal="@dimen/_4sdp"
+                    app:drawableStartCompat="@drawable/ic_time"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:backgroundTint="?colorSurface"
+                    android:textColor="?colorOnBackground"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:background="@drawable/round_corner_rectangle_shape" />
+            </LinearLayout>
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/saveButton"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/buttonLabelSave"
+                android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

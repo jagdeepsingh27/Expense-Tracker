@@ -8,6 +8,21 @@
     <string name="labelTotalExpenses">Total Expenses :</string>
     <string name="labelStartDate">Start Date</string>
     <string name="labelEndDate">End Date</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- add/edit expense screen  -->
+    <string name="titleAddExpense">Add</string>
+    <string name="titleEditExpense">Edit</string>
+    <string name="labelCancelExpenseDialog">Cancel</string>
+    <string name="messageExpenseItemSavedSuccess">Saved successfully</string>
+    <!-- labeled text view -->
+    <string name="labelDateAndTime">Date and Time</string>
+    <string name="labelAmount">Amount</string>
+    <string name="labelTitle">Title</string>
+    <string name="labelDescription">Description</string>
+    <string name="labelCategory">Category</string>
+    <string name="labelPaymentMethodType">Payment method</string>
+    <string name="buttonLabelSave">Save</string>
+    <!-- chooser bottom sheet -->
+    <string name="labelChoose">Select option</string>
+    <string name="labelSelectCategory">Select category</string>
+    <string name="labelSelectPaymentMethod">Select payment method</string>
 </resources>
