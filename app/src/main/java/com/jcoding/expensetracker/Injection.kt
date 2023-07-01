@@ -8,13 +8,15 @@ import com.jcoding.expensetracker.data.source.local.mappers.EntityMapper
 import com.jcoding.expensetracker.data.source.local.mappers.RoomDbResponseMapper
 import com.jcoding.expensetracker.data.source.local.preferences.AppPreferences
 import com.jcoding.expensetracker.data.source.local.staticdataprovider.CurrencyListSource
+import com.jcoding.expensetracker.util.resourceprovider.ResourceProvider
+import com.jcoding.expensetracker.util.resourceprovider.ResourceProviderImpl
 
 /** This class used for the manually dependency injection */
 object Injection {
     //this is called from the Application class for initialized required content
     fun init(context: Context) {
         setAppRepository(context)
-
+        setResourceProvider(context)
     }
 
     //////////////////////////////////////////////////////////////////////////////
@@ -33,4 +35,13 @@ object Injection {
 
     fun requireAppRepository() = requireNotNull(appRepository)
 
+    //////////////////////////////////////////////////////////////////////////////
+    /* resource provider initialization */
+    private var resourceProvider: ResourceProvider? = null
+    private fun setResourceProvider(context: Context) {
+        resourceProvider = ResourceProviderImpl(context)
+    }
+
+    fun requireResourceProvider() = requireNotNull(resourceProvider)
+    //////////////////////////////////////////////////////////////////////////////
 }
