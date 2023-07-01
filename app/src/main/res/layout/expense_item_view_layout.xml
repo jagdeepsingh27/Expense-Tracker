@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?colorSurface"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/categoryIconImageView"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/ic_cate_others"
+        android:theme="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+        android:background="?colorOnSurfaceVariant"
+        app:tint="?colorOnSurface"
+        android:layout_margin="@dimen/_8sdp"
+        app:contentPadding="@dimen/_4sdp" />
+
+
+
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/cateImageBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="categoryIconImageView" />
+
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/titleBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="titleTextView" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/titleTextView"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        app:layout_constraintStart_toStartOf="@id/cateImageBarrier"
+        app:layout_constraintBottom_toTopOf="@id/dateTextView"
+        android:textAppearance="@style/App.Style.TextAppearance.Body2.bold"
+        android:textColor="?colorOnSurface" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dateTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintStart_toStartOf="@id/cateImageBarrier"
+        app:layout_constraintEnd_toStartOf="@id/titleBarrier"
+        app:layout_constraintBottom_toTopOf="@id/categoryTextView"
+        android:textAppearance="@style/App.Style.TextAppearance.Caption.bold"
+        android:textColor="?colorOnSurface" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/categoryTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        app:layout_constraintTop_toBottomOf="@id/dateTextView"
+        app:layout_constraintStart_toStartOf="@id/cateImageBarrier"
+        app:layout_constraintEnd_toStartOf="@id/titleBarrier"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAppearance="@style/App.Style.TextAppearance.Caption.bold"
+        android:textColor="?colorOnSurface" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/amountTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingEnd="@dimen/_4sdp"
+        android:ellipsize="end"
+        app:layout_constraintStart_toStartOf="@id/titleBarrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintBottom_toTopOf="@id/paymentMethodTypeTextView"
+        android:textAppearance="@style/App.Style.TextAppearance.Caption.bold"
+        android:textColor="?colorOnSurface"
+        android:gravity="center_vertical|end" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/paymentMethodTypeTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/amountTextView"
+        android:paddingHorizontal="@dimen/_4sdp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        app:layout_constraintStart_toStartOf="@id/titleBarrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAppearance="@style/App.Style.TextAppearance.Caption.bold"
+        android:textColor="?colorOnSurface"
+        android:gravity="end" />
+
+
+</merge>
