@@ -138,14 +138,16 @@ class ExpenseListViewModel(
 
 
     fun addNewExpenseItem(_item: ExpenseItem) {
-        if (isListFilterEnabled) {
-            refreshContent()
-            return
+        viewModelScope.launch(Dispatchers.Default) {
+            if (isListFilterEnabled) {
+                refreshContent()
+                return@launch
+            }
+            val item = ExpenseListAdapterItem.fromExpenseItemModel(_item, currencySymbol)
+            expenseList.add(0, item)
+            calculateTotalExpenses()
+            _expenseListResultLiveData.postValue(ResultState.Success(expenseList.toMutableList()))
         }
-        val item = ExpenseListAdapterItem.fromExpenseItemModel(_item, currencySymbol)
-        expenseList.add(0, item)
-        calculateTotalExpenses()
-        _expenseListResultLiveData.value = ResultState.Success(expenseList.toMutableList())
     }
 
 

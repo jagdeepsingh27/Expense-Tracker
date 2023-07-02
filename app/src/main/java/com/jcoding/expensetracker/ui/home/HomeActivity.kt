@@ -9,6 +9,10 @@ import com.jcoding.expensetracker.ui.addeditexpense.AddEditExpenseActivity
 import com.jcoding.expensetracker.ui.home.list.ExpenseListFragment
 import com.jcoding.expensetracker.ui.home.list.ExpenseListViewModel
 import com.jcoding.expensetracker.ui.home.list.ExpenseListViewModelFactory
+import com.jcoding.expensetracker.util.EventBusWork
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 class HomeActivity : BaseActivity<HomeActivityBinding>(HomeActivityBinding::inflate) {
 
@@ -16,7 +20,11 @@ class HomeActivity : BaseActivity<HomeActivityBinding>(HomeActivityBinding::infl
         ExpenseListViewModelFactory()
     }
 
-
+    override fun onStart() {
+        super.onStart()
+        //event bus register
+        EventBus.getDefault().register(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         /*##################################################################################*/
@@ -34,11 +42,36 @@ class HomeActivity : BaseActivity<HomeActivityBinding>(HomeActivityBinding::infl
             ExpenseListFragment()
         ).commit()
     }
-
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
     private fun onAddFabButtonClick() {
         AddEditExpenseActivity.start(this, AddEditActivityActionMode.ADD)
     }
 
     /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
+    //event bus subscribers
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    fun onExpenseItemUpdateEvent(event: EventBusWork.UpdateExpenseItem) {
+        val stickyEvent =
+            EventBus.getDefault().getStickyEvent(EventBusWork.UpdateExpenseItem::class.java)
+        if (stickyEvent != null) {
+            EventBus.getDefault().removeStickyEvent(stickyEvent)
+            expenseListViewModel.updateExpenseItem(event.item)
+        }
+    }
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    fun onExpenseItemAddEvent(event: EventBusWork.AddsNewExpenseItem) {
+        val stickyEvent =
+            EventBus.getDefault().getStickyEvent(EventBusWork.AddsNewExpenseItem::class.java)
+        if (stickyEvent != null) {
+            EventBus.getDefault().removeStickyEvent(stickyEvent)
+            expenseListViewModel.addNewExpenseItem(event.item)
+        }
+    }
+
     /////////////////////////////////////////////////////////////////////////////////
 }
