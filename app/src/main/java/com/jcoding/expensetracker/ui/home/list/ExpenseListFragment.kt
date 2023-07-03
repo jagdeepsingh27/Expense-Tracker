@@ -15,6 +15,7 @@ import com.jcoding.expensetracker.base.BaseFragment
 import com.jcoding.expensetracker.custom.view.contentlayout.ContentStatus
 import com.jcoding.expensetracker.databinding.ExpenseListFragmentBinding
 import com.jcoding.expensetracker.ui.dialog.DatePickerDialogFragment
+import com.jcoding.expensetracker.ui.expensedetails.ExpenseDetailsActivity
 import com.jcoding.expensetracker.ui.home.list.adapter.ExpenseListAdapter
 import com.jcoding.expensetracker.ui.home.list.adapter.ExpenseListAdapterItem
 import com.jcoding.expensetracker.util.ResultState
@@ -128,7 +129,7 @@ class ExpenseListFragment :  BaseFragment<ExpenseListFragmentBinding>(
 
 
     private fun onExpenseListItemClick(item: ExpenseListAdapterItem) {
-
+        ExpenseDetailsActivity.start(requireActivity(), item.id)
     }
 
 

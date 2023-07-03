@@ -89,5 +89,13 @@
         <item name="android:textColorHint">?colorOnBackground</item>
         <item name="hintTextAppearance">@style/App.Style.TextAppearance.Body2</item>
     </style>
+    <style name="CommonAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textSize">@dimen/_11ssp</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">?colorOnSurface</item>
+        <!-- Used for the background -->
+        <item name="android:background">?colorSurface</item>
+    </style>
+
 
 </resources>

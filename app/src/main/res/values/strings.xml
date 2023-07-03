@@ -25,4 +25,14 @@
     <string name="labelChoose">Select option</string>
     <string name="labelSelectCategory">Select category</string>
     <string name="labelSelectPaymentMethod">Select payment method</string>
+    <!-- expense details screen -->
+    <string name="titleExpenseDetails">Details</string>
+    <string name="buttonLabelDelete">Delete</string>
+    <string name="buttonLabelEdit">Edit</string>
+    <string name="messageExpenseItemDeletedSuccess">Deleted successfully</string>
+    <!-- delete confirmation dialog -->
+    <string name="deleteConfirmationDialogTitle">Delete</string>
+    <string name="deleteConfirmationDialogMessage">Are you sure you want to delete this record?</string>
+    <string name="deleteConfirmationDialogNegativeActionLabel">No</string>
+    <string name="deleteConfirmationDialogPositiveActionLabel">Yes</string>
 </resources>

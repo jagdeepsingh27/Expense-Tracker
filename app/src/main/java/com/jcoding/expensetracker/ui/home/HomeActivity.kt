@@ -72,6 +72,14 @@ class HomeActivity : BaseActivity<HomeActivityBinding>(HomeActivityBinding::infl
             expenseListViewModel.addNewExpenseItem(event.item)
         }
     }
-
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    fun onExpenseItemDeleteEvent(event: EventBusWork.DeleteExpenseItem) {
+        val stickyEvent =
+            EventBus.getDefault().getStickyEvent(EventBusWork.DeleteExpenseItem::class.java)
+        if (stickyEvent != null) {
+            EventBus.getDefault().removeStickyEvent(stickyEvent)
+            expenseListViewModel.deleteExpenseItem(event.id)
+        }
+    }
     /////////////////////////////////////////////////////////////////////////////////
 }

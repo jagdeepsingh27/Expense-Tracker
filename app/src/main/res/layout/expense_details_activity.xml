@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.expensedetails.ExpenseDetailsActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbarContainerConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="?colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titleExpenseDetails"
+            android:textAppearance="@style/App.Style.TextAppearance.Headline4"
+            android:textColor="?colorOnPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/backArrowImageView"
+            android:stateListAnimator="@animator/scale_touch_effect"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?colorOnPrimary"
+            android:contentDescription="@string/backArrowContentDescription" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarContainerConstraintLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <com.jcoding.expensetracker.custom.view.contentlayout.ContentLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:orientation="vertical">
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="@string/labelTitle"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2.bold"
+                    android:textColor="?colorOnBackground" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/expenseTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:backgroundTint="?colorSurface"
+                    android:paddingHorizontal="@dimen/_4sdp"
+                    android:background="@drawable/round_corner_rectangle_shape"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:textColor="?colorOnBackground" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="@string/labelAmount"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2.bold"
+                    android:textColor="?colorOnBackground" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/expenseAmountTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:paddingHorizontal="@dimen/_4sdp"
+                    android:backgroundTint="?colorSurface"
+                    android:background="@drawable/round_corner_rectangle_shape"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:textColor="?colorOnBackground" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="@string/labelDescription"
+
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2.bold"
+                    android:textColor="?colorOnBackground" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/expenseDescriptionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_4sdp"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:backgroundTint="?colorSurface"
+                    android:background="@drawable/round_corner_rectangle_shape"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:textColor="?colorOnBackground" />
+
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="@string/labelCategory"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2.bold"
+                    android:textColor="?colorOnBackground" />
+
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/categoryTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:textColorHint="?colorOnSurface"
+                    android:backgroundTint="?colorSurface"
+                    android:drawableTint="?colorOnSurface"
+                    android:background="@drawable/round_corner_rectangle_shape"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:textColor="?colorOnBackground" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="@string/labelPaymentMethodType"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:textColor="?colorOnBackground" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/paymentMethodTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:textColorHint="?colorOnSurface"
+                    android:backgroundTint="?colorSurface"
+                    android:background="@drawable/round_corner_rectangle_shape"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:textColor="?colorOnBackground" />
+
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/labelDateTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="@string/labelDateAndTime"
+                    android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                    android:textColor="?colorOnBackground" />
+
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/expenseDateTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/_4sdp"
+                        app:drawableStartCompat="@drawable/ic_date"
+                        android:drawablePadding="@dimen/_6sdp"
+                        android:backgroundTint="?colorSurface"
+                        android:drawableTint="?colorOnSurface"
+                        android:textColor="?colorOnSurface"
+                        android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                        android:background="@drawable/round_corner_rectangle_shape" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/expenseTimeTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/_4sdp"
+                        app:drawableStartCompat="@drawable/ic_time"
+                        android:drawablePadding="@dimen/_6sdp"
+                        android:backgroundTint="?colorSurface"
+                        android:textColor="?colorOnSurface"
+                        android:drawableTint="?colorOnSurface"
+                        android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:background="@drawable/round_corner_rectangle_shape" />
+                </LinearLayout>
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/deleteButton"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/buttonLabelDelete"
+                        app:backgroundTint="?colorTertiary"
+                        android:textColor="?colorOnTertiary"
+                        android:textAllCaps="true"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/editButton"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_40sdp"/>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/editButton"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/buttonLabelEdit"
+                        app:layout_constraintStart_toEndOf="@id/deleteButton"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:backgroundTint="?colorPrimary"
+                        android:textColor="?colorOnPrimary"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/App.Style.TextAppearance.Body2"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_40sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </com.jcoding.expensetracker.custom.view.contentlayout.ContentLayout>
+
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
