@@ -35,4 +35,10 @@
     <string name="deleteConfirmationDialogMessage">Are you sure you want to delete this record?</string>
     <string name="deleteConfirmationDialogNegativeActionLabel">No</string>
     <string name="deleteConfirmationDialogPositiveActionLabel">Yes</string>
+    <!-- setting -->
+    <string name="titleSettingsScreen">Settings</string>
+    <string name="settingOptionCurrency">Currency</string>
+    <string name="settingOptionAbout">About</string>
+    <!--currency list screen -->
+    <string name="titleCurrencyListScreen">Currency</string>
 </resources>

@@ -9,6 +9,7 @@ import com.jcoding.expensetracker.ui.addeditexpense.AddEditExpenseActivity
 import com.jcoding.expensetracker.ui.home.list.ExpenseListFragment
 import com.jcoding.expensetracker.ui.home.list.ExpenseListViewModel
 import com.jcoding.expensetracker.ui.home.list.ExpenseListViewModelFactory
+import com.jcoding.expensetracker.ui.settings.SettingsActivity
 import com.jcoding.expensetracker.util.EventBusWork
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -31,6 +32,10 @@ class HomeActivity : BaseActivity<HomeActivityBinding>(HomeActivityBinding::infl
         //click listener and callback
         binding.addExpenseFloatingActionButton.setOnClickListener {
             onAddFabButtonClick()
+        }
+        //click on settings option
+        binding.settingOptionImageView.setOnClickListener {
+            SettingsActivity.start(this)
         }
         /*##################################################################################*/
         //init view model
