@@ -2,6 +2,7 @@ package com.jcoding.expensetracker.ui.addeditexpense
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.jcoding.expensetracker.AppConstants
 import com.jcoding.expensetracker.R
@@ -14,20 +15,30 @@ import com.jcoding.expensetracker.data.source.local.staticdataprovider.ExpensePa
 import com.jcoding.expensetracker.util.EventBusWork
 import com.jcoding.expensetracker.util.ResultState
 import com.jcoding.expensetracker.util.resourceprovider.ResourceProvider
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.greenrobot.eventbus.EventBus
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
+import javax.inject.Inject
 
-
-class AddEditExpenseViewModel(
-    private val actionMode: AddEditActivityActionMode,
-    private val expenseId: String?,
+@HiltViewModel
+class AddEditExpenseViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle,
     private val resourceProvider: ResourceProvider,
     private val appRepository: AppRepository
 ) : BaseViewModel() {
+    private var actionMode: AddEditActivityActionMode =
+        savedStateHandle.get<AddEditActivityActionMode>(
+            AddEditActivityStartUpParamsKey.EXTRA_KEY_ACTION_MODE
+        ) ?: throw RuntimeException("action mode required")
+    private var expenseId: String? =
+        savedStateHandle.get<String?>(AddEditActivityStartUpParamsKey.EXTRA_KEY_EXPENSE_ID)
+
+
     private var selectedDateCalendar: Calendar = Calendar.getInstance()
     private var title: String? = null
     private var amount: String? = null
@@ -159,7 +170,7 @@ class AddEditExpenseViewModel(
     fun saveExpenseResultLiveData(): LiveData<ResultState<Unit>> = _saveExpenseResultLiveData
 
 
-    private var saveExpenseJob : Job ?= null
+    private var saveExpenseJob: Job? = null
     fun saveExpense() {
         saveExpenseJob?.cancel()
         if (title.isNullOrBlank()) {
@@ -200,7 +211,7 @@ class AddEditExpenseViewModel(
                 ResultState.Error(resourceProvider.getString(R.string.errorSomethingWentWrong))
         }
 
-       saveExpenseJob = viewModelScope.launch(exceptionHandler) {
+        saveExpenseJob = viewModelScope.launch(exceptionHandler) {
             val date = selectedDateCalendar.time
 
             val expenseItem = ExpenseItem(
@@ -266,6 +277,10 @@ class AddEditExpenseViewModel(
     /*##########################################################################*/
     /*##########################################################################*/
     init {
+
+        if (actionMode == AddEditActivityActionMode.EDIT && expenseId.isNullOrBlank()) {
+            throw RuntimeException("Expense Id required for Edit Mode")
+        }
         //set default  date and time for add mode
         if (actionMode == AddEditActivityActionMode.ADD) {
             updateDate()

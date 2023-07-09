@@ -1,11 +1,11 @@
-package com.jcoding.expensetracker.data.source.local.mappers
+package com.jcoding.expensetracker.data.source.local.mappers.entity
 
 import com.jcoding.expensetracker.data.model.ExpenseItem
 import com.jcoding.expensetracker.data.source.local.db.entities.ExpenseEntity
 
 
-class EntityMapper {
-    fun expenseItemToEntity(expenseItem: ExpenseItem): ExpenseEntity {
+class EntityMapperImpl : EntityMapper {
+    override fun expenseItemToEntity(expenseItem: ExpenseItem): ExpenseEntity {
         return ExpenseEntity(
             title = expenseItem.title,
             amount = expenseItem.amount,
@@ -19,7 +19,7 @@ class EntityMapper {
     }
 
 
-    fun expenseItemFromEntity(entity: ExpenseEntity): ExpenseItem {
+    override fun expenseItemFromEntity(entity: ExpenseEntity): ExpenseItem {
         return ExpenseItem(
             title = entity.title,
             amount = entity.amount,

@@ -1,4 +1,4 @@
-package com.jcoding.expensetracker.data.source
+package com.jcoding.expensetracker.data.source.local
 
 import com.jcoding.expensetracker.data.model.ExpenseItem
 import com.jcoding.expensetracker.data.model.SaveExpenseItemResponse

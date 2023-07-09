@@ -9,11 +9,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import java.io.IOException
+import javax.inject.Inject
 
 
-
-class AppPreferences(private val dataStore: DataStore<Preferences>) {
-
+class AppPreferences @Inject constructor(
+    private val dataStore: DataStore<Preferences>
+) {
     private fun <T> fetchPreferences(key: Preferences.Key<T>): Flow<T?> {
         return dataStore.data.catch {
             if (this is IOException) {

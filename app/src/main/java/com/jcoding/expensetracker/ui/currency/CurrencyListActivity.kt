@@ -13,7 +13,9 @@ import com.jcoding.expensetracker.ui.currency.list.CurrencyListAdapter
 import com.jcoding.expensetracker.ui.currency.list.CurrencyListAdapterItem
 import com.jcoding.expensetracker.util.ResultState
 import com.jcoding.expensetracker.util.VerticalSpaceRecyclerItemDecoration
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CurrencyListActivity : BaseActivity<CurrencyListActivityBinding>(
     CurrencyListActivityBinding::inflate
 ) {
@@ -26,10 +28,7 @@ class CurrencyListActivity : BaseActivity<CurrencyListActivityBinding>(
     }
 
     private val currencyListAdapter by lazy { CurrencyListAdapter() }
-    private val currencyListViewModel: CurrencyListViewModel by viewModels {
-        CurrencyListViewModelFactory()
-    }
-
+    private val currencyListViewModel: CurrencyListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,8 +1,9 @@
-package com.jcoding.expensetracker.data.source.local.mappers
+package com.jcoding.expensetracker.data.source.local.mappers.roomdb
 
 import com.jcoding.expensetracker.data.model.common.GeneralResponse
+import javax.inject.Inject
 
-class RoomDbResponseMapper {
+class RoomDbResponseMapperImpl @Inject constructor() : RoomDbResponseMapper {
     companion object {
         const val ERROR_SOMETHING_WENT_WRONG = "Something went wrong"
         private const val SUCCESS_MESSAGE = "Result success"
@@ -26,7 +27,7 @@ class RoomDbResponseMapper {
     with each value as the rowId for one of the inserted items. */
 
 
-    fun <T> processResponse(input: T): GeneralResponse<T> {
+    override fun <T> processResponse(input: T): GeneralResponse<T> {
         val generalResult = GeneralResponse<T>(true, SUCCESS_MESSAGE)
         generalResult.data = input
         return generalResult
@@ -34,7 +35,7 @@ class RoomDbResponseMapper {
 
     /* A @Delete method can optionally return an int value indicating
            the number of rows that were deleted successfully. */
-    fun  processDeleteItemResponse(input: Int): GeneralResponse<Unit> {
+    override fun  processDeleteItemResponse(input: Int): GeneralResponse<Unit> {
         val isSuccessStatus = input > 0
         val message = if(isSuccessStatus){
             SUCCESS_MESSAGE
@@ -49,7 +50,7 @@ class RoomDbResponseMapper {
 
     /* An @Update method can optionally
      return an int value indicating the number of rows that were updated successfully. */
-    fun  processUpdateItemResponse(input: Int): GeneralResponse<Unit> {
+    override fun  processUpdateItemResponse(input: Int): GeneralResponse<Unit> {
         val isSuccessStatus = input > 0
         val message = if(isSuccessStatus){
             SUCCESS_MESSAGE

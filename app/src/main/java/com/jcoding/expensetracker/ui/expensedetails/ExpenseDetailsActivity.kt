@@ -16,6 +16,7 @@ import com.jcoding.expensetracker.ui.addeditexpense.AddEditActivityActionMode
 import com.jcoding.expensetracker.ui.addeditexpense.AddEditExpenseActivity
 import com.jcoding.expensetracker.util.EventBusWork
 import com.jcoding.expensetracker.util.ResultState
+import dagger.hilt.android.AndroidEntryPoint
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -23,11 +24,12 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+@AndroidEntryPoint
 class ExpenseDetailsActivity :  BaseActivity<ExpenseDetailsActivityBinding>(
     ExpenseDetailsActivityBinding::inflate
 ) {
     companion object {
-        private const val EXTRA_KEY_EXPENSE_ID = "extra.expense.id"
+         const val EXTRA_KEY_EXPENSE_ID = "extra.expense.id"
 
         fun start(activity: FragmentActivity, expenseItemId: String) {
             activity.startActivity(Intent(activity, ExpenseDetailsActivity::class.java).apply {
@@ -38,11 +40,7 @@ class ExpenseDetailsActivity :  BaseActivity<ExpenseDetailsActivityBinding>(
     }
 
 
-    private val expenseDetailsViewModel: ExpenseDetailsViewModel by viewModels {
-        val expenseId = intent?.getStringExtra(EXTRA_KEY_EXPENSE_ID)
-        ExpenseDetailsViewModelFactory(requireNotNull(expenseId))
-    }
-
+    private val expenseDetailsViewModel: ExpenseDetailsViewModel by viewModels()
     override fun onStart() {
         super.onStart()
         //event bus register

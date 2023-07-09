@@ -1,8 +1,10 @@
 package com.jcoding.expensetracker.util.resourceprovider
 
 import android.content.Context
+import javax.inject.Inject
 
-class ResourceProviderImpl(private val context: Context?) : ResourceProvider {
+
+class ResourceProviderImpl @Inject constructor(val context: Context?) : ResourceProvider {
     override fun getString(resId: Int, vararg formatArgs: Any): String? {
         return context?.getString(resId, *formatArgs)
     }

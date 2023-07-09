@@ -20,9 +20,10 @@ import com.jcoding.expensetracker.ui.dialog.DatePickerDialogFragment
 import com.jcoding.expensetracker.ui.dialog.TimePickerDialogFragment
 import com.jcoding.expensetracker.util.ResultState
 import com.jcoding.expensetracker.util.UtilMethods
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Locale
-
+@AndroidEntryPoint
 class AddEditExpenseActivity : BaseActivity<AddEditExpenseActivityBinding>(
     AddEditExpenseActivityBinding::inflate
 ) {
@@ -41,9 +42,7 @@ class AddEditExpenseActivity : BaseActivity<AddEditExpenseActivityBinding>(
 
     }
 
-    private val addEditExpenseViewModel: AddEditExpenseViewModel by viewModels {
-        AddEditExpenseViewModelFactory(intent)
-    }
+    private val addEditExpenseViewModel: AddEditExpenseViewModel by viewModels()
 
 
     private var datePickerDialogFragment: DatePickerDialogFragment? = null

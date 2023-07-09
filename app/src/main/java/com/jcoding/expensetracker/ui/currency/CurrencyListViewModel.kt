@@ -9,13 +9,16 @@ import com.jcoding.expensetracker.data.source.AppRepository
 import com.jcoding.expensetracker.ui.currency.list.CurrencyListAdapterItem
 import com.jcoding.expensetracker.util.ResultState
 import com.jcoding.expensetracker.util.resourceprovider.ResourceProvider
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class CurrencyListViewModel(
+@HiltViewModel
+class CurrencyListViewModel @Inject constructor(
     private val resourceProvider: ResourceProvider,
     private val appRepository: AppRepository
 ) : BaseViewModel() {

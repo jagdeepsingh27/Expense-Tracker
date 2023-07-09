@@ -8,10 +8,12 @@ import com.jcoding.expensetracker.R
 import com.jcoding.expensetracker.base.BaseViewModel
 import com.jcoding.expensetracker.data.model.ExpenseItem
 import com.jcoding.expensetracker.data.source.AppRepository
+import com.jcoding.expensetracker.data.source.local.LocalAppDataSource
 import com.jcoding.expensetracker.data.source.local.staticdataprovider.CurrencyItem
 import com.jcoding.expensetracker.ui.home.list.adapter.ExpenseListAdapterItem
 import com.jcoding.expensetracker.util.ResultState
 import com.jcoding.expensetracker.util.resourceprovider.ResourceProvider
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,8 +24,10 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import javax.inject.Inject
 
-class ExpenseListViewModel(
+@HiltViewModel
+class ExpenseListViewModel @Inject constructor(
     private val resourceProvider: ResourceProvider,
     private val appRepository: AppRepository
 ) : BaseViewModel() {

@@ -10,49 +10,18 @@ import kotlinx.coroutines.flow.Flow
 import java.util.ArrayList
 import java.util.Date
 
-class AppRepository(
-    private val localAppDataSource: LocalAppDataSource
-) : LocalAppDataSource {
-    override suspend fun saveExpenseItem(expenseItem: ExpenseItem): GeneralResponse<SaveExpenseItemResponse> {
-        return localAppDataSource.saveExpenseItem(expenseItem)
-    }
+interface AppRepository {
+    suspend fun saveExpenseItem(expenseItem: ExpenseItem): GeneralResponse<SaveExpenseItemResponse>
+    suspend fun fetchExpenseList(startDate: Date? = null, endDate: Date? = null)
+            : GeneralResponse<List<ExpenseItem>>
 
-    override suspend fun fetchExpenseList(
-        startDate: Date?,
-        endDate: Date?
-    ): GeneralResponse<List<ExpenseItem>> {
-        return localAppDataSource.fetchExpenseList(startDate, endDate)
-    }
+    suspend fun fetchExpenseCategoryList(): GeneralResponse<ArrayList<ExpenseCategory>>
+    suspend fun fetchPaymentMethodList(): GeneralResponse<ArrayList<ExpensePaymentMethod>>
+    suspend fun fetchExpenseDetails(id: String): GeneralResponse<ExpenseItem>
+    suspend fun deleteExpenseItem(expenseItem: ExpenseItem): GeneralResponse<Unit>
+    suspend fun updateExpenseItem(expenseItem: ExpenseItem): GeneralResponse<Unit>
+    suspend fun fetchCurrencyList(): GeneralResponse<ArrayList<CurrencyItem>>
 
-    override suspend fun fetchExpenseCategoryList(): GeneralResponse<ArrayList<ExpenseCategory>> {
-        return localAppDataSource.fetchExpenseCategoryList()
-    }
-
-    override suspend fun fetchPaymentMethodList(): GeneralResponse<ArrayList<ExpensePaymentMethod>> {
-        return localAppDataSource.fetchPaymentMethodList()
-    }
-
-    override suspend fun fetchExpenseDetails(id: String): GeneralResponse<ExpenseItem> {
-        return localAppDataSource.fetchExpenseDetails(id)
-    }
-
-    override suspend fun deleteExpenseItem(expenseItem: ExpenseItem): GeneralResponse<Unit> {
-        return localAppDataSource.deleteExpenseItem(expenseItem)
-    }
-
-    override suspend fun updateExpenseItem(expenseItem: ExpenseItem): GeneralResponse<Unit> {
-        return localAppDataSource.updateExpenseItem(expenseItem)
-    }
-
-    override suspend fun fetchCurrencyList(): GeneralResponse<java.util.ArrayList<CurrencyItem>> {
-        return localAppDataSource.fetchCurrencyList()
-    }
-
-    override fun fetchSelectedCurrency(): Flow<CurrencyItem?> {
-        return localAppDataSource.fetchSelectedCurrency()
-    }
-
-    override suspend fun saveSelectedCurrency(currencyItemId: String) {
-        localAppDataSource.saveSelectedCurrency(currencyItemId)
-    }
+    fun fetchSelectedCurrency(): Flow<CurrencyItem?>
+    suspend fun saveSelectedCurrency(currencyItemId: String)
 }

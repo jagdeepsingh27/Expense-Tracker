@@ -3,24 +3,25 @@ package com.jcoding.expensetracker.data.source.local
 import com.jcoding.expensetracker.data.model.ExpenseItem
 import com.jcoding.expensetracker.data.model.SaveExpenseItemResponse
 import com.jcoding.expensetracker.data.model.common.GeneralResponse
-import com.jcoding.expensetracker.data.source.LocalAppDataSource
 import com.jcoding.expensetracker.data.source.local.db.dao.ExpenseDao
-import com.jcoding.expensetracker.data.source.local.mappers.EntityMapper
-import com.jcoding.expensetracker.data.source.local.mappers.RoomDbResponseMapper
+import com.jcoding.expensetracker.data.source.local.mappers.entity.EntityMapper
+import com.jcoding.expensetracker.data.source.local.mappers.roomdb.RoomDbResponseMapper
 import com.jcoding.expensetracker.data.source.local.preferences.AppPreferences
 import com.jcoding.expensetracker.data.source.local.staticdataprovider.CurrencyItem
-import com.jcoding.expensetracker.data.source.local.staticdataprovider.CurrencyListSource
+import com.jcoding.expensetracker.data.source.local.staticdataprovider.currency.CurrencyListSourceImpl
 import com.jcoding.expensetracker.data.source.local.staticdataprovider.ExpenseCategory
 import com.jcoding.expensetracker.data.source.local.staticdataprovider.ExpensePaymentMethod
+import com.jcoding.expensetracker.data.source.local.staticdataprovider.currency.CurrencyListSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import java.util.ArrayList
 import java.util.Date
+import javax.inject.Inject
 
 
-class LocalAppDataSourceImpl(
+class LocalAppDataSourceImpl @Inject constructor(
     private val expenseDao: ExpenseDao,
     private val appPreferences: AppPreferences,
     private val entityMapper: EntityMapper,

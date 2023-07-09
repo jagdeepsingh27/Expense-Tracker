@@ -8,18 +8,17 @@ import com.jcoding.expensetracker.ui.addeditexpense.AddEditActivityActionMode
 import com.jcoding.expensetracker.ui.addeditexpense.AddEditExpenseActivity
 import com.jcoding.expensetracker.ui.home.list.ExpenseListFragment
 import com.jcoding.expensetracker.ui.home.list.ExpenseListViewModel
-import com.jcoding.expensetracker.ui.home.list.ExpenseListViewModelFactory
 import com.jcoding.expensetracker.ui.settings.SettingsActivity
 import com.jcoding.expensetracker.util.EventBusWork
+import dagger.hilt.android.AndroidEntryPoint
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
+@AndroidEntryPoint
 class HomeActivity : BaseActivity<HomeActivityBinding>(HomeActivityBinding::inflate) {
 
-    private val expenseListViewModel: ExpenseListViewModel by viewModels {
-        ExpenseListViewModelFactory()
-    }
+    private val expenseListViewModel : ExpenseListViewModel by viewModels()
 
     override fun onStart() {
         super.onStart()
