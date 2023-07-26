@@ -11,8 +11,8 @@ class ExampleTestTest {
     fun emptyUsernameReturnFalse() {
         val result = ExampleTest.validateRegistrationInput(
             "",
-            "apple",
-            "apple"
+            "123",
+            "123"
         )
         assertThat(result).isFalse()
     }
@@ -20,8 +20,8 @@ class ExampleTestTest {
     fun validUsernameAndValidPasswordReturnTrue() {
         val result = ExampleTest.validateRegistrationInput(
             "delhi",
-            "apple",
-            "apple"
+            "1111",
+            "1111"
         )
         assertThat(result).isTrue()
     }
