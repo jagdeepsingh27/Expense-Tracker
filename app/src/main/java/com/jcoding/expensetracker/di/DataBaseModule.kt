@@ -18,13 +18,16 @@ object DataBaseModule {
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext appContext: Context): ExpenseTrackerDataBase {
-        return ExpenseTrackerDataBase(appContext)
+        return Room.databaseBuilder(
+            appContext,ExpenseTrackerDataBase::class.java,
+            ExpenseTrackerDataBase.DATABASE_NAME
+        ).build()
     }
 
     @Provides
     @Singleton
     fun provideExpenseDao(expenseTrackerDataBase: ExpenseTrackerDataBase): ExpenseDao {
-        return expenseTrackerDataBase.getExpenseDao()
+        return expenseTrackerDataBase.expenseDao
     }
 
 }
